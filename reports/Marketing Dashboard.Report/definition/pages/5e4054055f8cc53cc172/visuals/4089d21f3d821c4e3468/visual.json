@@ -1,0 +1,256 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "4089d21f3d821c4e3468",
+  "position": {
+    "x": 257.58991286391438,
+    "y": 467.12200616366562,
+    "z": 8000,
+    "height": 613.21777763872149,
+    "width": 957.31176571812955,
+    "tabOrder": 8000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_customer_reviews_sentiment"
+                    }
+                  },
+                  "Property": "review_date"
+                }
+              },
+              "queryRef": "fact_customer_reviews_sentiment.review_date",
+              "nativeQueryRef": "Date",
+              "displayName": "Date",
+              "format": "d"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_customer_reviews_sentiment"
+                    }
+                  },
+                  "Property": "customer_id"
+                }
+              },
+              "queryRef": "fact_customer_reviews_sentiment.customer_id",
+              "nativeQueryRef": "Customer ID",
+              "displayName": "Customer ID"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_customer_reviews_sentiment"
+                    }
+                  },
+                  "Property": "comment"
+                }
+              },
+              "queryRef": "fact_customer_reviews_sentiment.comment",
+              "nativeQueryRef": "Review comment",
+              "displayName": "Review comment"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_customer_reviews_sentiment"
+                    }
+                  },
+                  "Property": "sentiment_category"
+                }
+              },
+              "queryRef": "fact_customer_reviews_sentiment.sentiment_category",
+              "nativeQueryRef": "Sentiment",
+              "displayName": "Sentiment"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fact_customer_reviews_sentiment"
+                    }
+                  },
+                  "Property": "rating"
+                }
+              },
+              "queryRef": "Sum(fact_customer_reviews_sentiment.rating)",
+              "nativeQueryRef": "rating",
+              "displayName": "Rating"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "columnHeaders": [
+        {
+          "properties": {
+            "columnAdjustment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'fixedWidth'"
+                }
+              }
+            },
+            "defaultColumnWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "110D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "fact_customer_reviews_sentiment.review_date"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "103D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "fact_customer_reviews_sentiment.customer_id"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "462D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "fact_customer_reviews_sentiment.comment"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "140D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "fact_customer_reviews_sentiment.sentiment_category"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "110D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(fact_customer_reviews_sentiment.rating)"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "padding": [
+        {
+          "properties": {
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "14D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "stylePreset": [
+        {
+          "properties": {
+            "name": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Minimal'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

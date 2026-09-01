@@ -1,0 +1,101 @@
+table fact_engagement_data
+	lineageTag: 96e4613a-1ea2-4bdc-9a15-65bb98171a4a
+
+	column id
+		dataType: int64
+		formatString: 0
+		lineageTag: 57cc50fe-ae3e-42ab-bfb2-d1eb3da3db2e
+		summarizeBy: sum
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column content_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 649ca77c-64ce-4814-b459-bc6e3ed8fd08
+		summarizeBy: sum
+		sourceColumn: content_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column type
+		dataType: string
+		lineageTag: 7c4c1a2c-4330-491f-b2e1-03a24618a733
+		summarizeBy: none
+		sourceColumn: type
+
+		annotation SummarizationSetBy = Automatic
+
+	column likes
+		dataType: int64
+		formatString: 0
+		lineageTag: 433db272-a4f9-4afb-bb02-e5fdbd4a7451
+		summarizeBy: sum
+		sourceColumn: likes
+
+		annotation SummarizationSetBy = Automatic
+
+	column engagement_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 2f413d71-0202-4b97-b473-1335fb62037f
+		summarizeBy: none
+		sourceColumn: engagement_date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column campaign_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 80bfad50-ff3a-44c8-a3f5-b68c0fbf3591
+		summarizeBy: sum
+		sourceColumn: campaign_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_id
+		dataType: int64
+		formatString: 0
+		lineageTag: b49644e7-5067-4533-aca2-38a0e6a6fb20
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column views
+		dataType: int64
+		formatString: 0
+		lineageTag: 64f14eec-1237-45e3-80ec-b623a2b9380e
+		summarizeBy: sum
+		sourceColumn: views
+
+		annotation SummarizationSetBy = Automatic
+
+	column clicks
+		dataType: int64
+		formatString: 0
+		lineageTag: 0ca9e8a5-9b56-47eb-855b-63aacbf967f2
+		summarizeBy: sum
+		sourceColumn: clicks
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_engagement_data = m
+		mode: import
+		source =
+				let
+				    Source = clean_data,
+				    #"C:\Users\usuario\Desktop\marketinganalyticsportfolio\clean_data\_clean_engagement_data csv" = Source{[#"Folder Path"="C:\Users\usuario\Desktop\marketinganalyticsportfolio\clean_data\",Name="clean_engagement_data.csv"]}[Content],
+				    #"Imported CSV" = Csv.Document(#"C:\Users\usuario\Desktop\marketinganalyticsportfolio\clean_data\_clean_engagement_data csv",[Delimiter=",", Columns=9, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Imported CSV", [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"id", Int64.Type}, {"content_id", Int64.Type}, {"type", type text}, {"likes", Int64.Type}, {"engagement_date", type date}, {"campaign_id", Int64.Type}, {"product_id", Int64.Type}, {"views", Int64.Type}, {"clicks", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,41 @@
+relationship AutoDetected_f77f647d-3973-44f1-ba44-5f4a03fa4d7f
+	fromColumn: dim_customers.geography_id
+	toColumn: dim_geography.id
+
+relationship a9736262-0738-2879-95a6-517ee20eda41
+	fromColumn: fact_customer_journey.customer_id
+	toColumn: dim_customers.id
+
+relationship fc101239-0f0d-6382-9340-b045bdb83481
+	fromColumn: fact_engagement_data.product_id
+	toColumn: dim_products.id
+
+relationship 734e1526-e049-f100-592c-a83fa817fc37
+	fromColumn: fact_customer_journey.product_id
+	toColumn: dim_products.id
+
+relationship 854219cf-e54d-2587-3aa6-6f3e44543bb5
+	fromColumn: fact_customer_reviews_sentiment.customer_id
+	toColumn: dim_customers.id
+
+relationship 2ab174fc-2b78-1aa8-7262-9cb957b573dd
+	fromColumn: fact_customer_reviews_sentiment.product_id
+	toColumn: dim_products.id
+
+relationship 799fe59a-ceee-49bc-8dc9-0d59978183a2
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Calendar.Date
+	toColumn: LocalDateTable_d8c50ded-e184-4667-8ab9-e184e58bacc8.Date
+
+relationship cf32041f-7344-3cab-b0ea-2bb8c54c7700
+	fromColumn: fact_customer_reviews_sentiment.review_date
+	toColumn: Calendar.Date
+
+relationship 6b69314f-42b3-c54d-6095-c32d01100ac5
+	fromColumn: fact_customer_journey.visit_date
+	toColumn: Calendar.Date
+
+relationship 99c43140-8824-c038-aba7-791b5c0ed944
+	fromColumn: fact_engagement_data.engagement_date
+	toColumn: Calendar.Date
+

@@ -1,0 +1,54 @@
+table dim_products
+	lineageTag: a91d1fe4-2e5e-4b55-b9ca-99acfb3e6777
+
+	column id
+		dataType: int64
+		formatString: 0
+		lineageTag: e4d5cc67-5036-4365-9149-2f8c8be1b5c2
+		summarizeBy: none
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column name
+		dataType: string
+		lineageTag: 620c7167-1964-4b62-a935-da21b6cbc6d8
+		summarizeBy: none
+		sourceColumn: name
+
+		annotation SummarizationSetBy = Automatic
+
+	column category
+		dataType: string
+		lineageTag: 32d8c95a-5438-4d17-8f2d-b398b6014307
+		summarizeBy: none
+		sourceColumn: category
+
+		annotation SummarizationSetBy = Automatic
+
+	column price
+		dataType: double
+		lineageTag: 67da3d70-4205-4641-baba-cef324476111
+		summarizeBy: sum
+		sourceColumn: price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition dim_products = m
+		mode: import
+		source =
+				let
+				    Source = clean_data,
+				    #"C:\Users\usuario\Desktop\marketinganalyticsportfolio\clean_data\_products csv" = Source{[#"Folder Path"="C:\Users\usuario\Desktop\marketinganalyticsportfolio\clean_data\",Name="products.csv"]}[Content],
+				    #"Imported CSV" = Csv.Document(#"C:\Users\usuario\Desktop\marketinganalyticsportfolio\clean_data\_products csv",[Delimiter=",", Columns=4, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Imported CSV", [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"id", Int64.Type}, {"name", type text}, {"category", type text}, {"price", type number}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

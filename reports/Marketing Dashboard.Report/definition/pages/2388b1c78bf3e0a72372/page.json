@@ -1,0 +1,8 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "2388b1c78bf3e0a72372",
+  "displayName": "Social Media Details",
+  "displayOption": "FitToPage",
+  "height": 1080,
+  "width": 1920
+}

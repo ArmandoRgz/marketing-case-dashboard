@@ -1,0 +1,82 @@
+table fact_customer_journey
+	lineageTag: 0c48e686-d9d5-4ace-9a45-c3fbe467cab9
+
+	column id
+		dataType: int64
+		formatString: 0
+		lineageTag: 690821f8-72d5-4fa4-8113-f87f1bb1ce3b
+		summarizeBy: sum
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 402c5419-9e6e-4506-bc24-45aab0173725
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column product_id
+		dataType: int64
+		formatString: 0
+		lineageTag: c49d80b5-00d9-4dae-833e-48fda052dc71
+		summarizeBy: none
+		sourceColumn: product_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column visit_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: c6ee9a59-f11d-4929-99da-27b2c1a6f370
+		summarizeBy: none
+		sourceColumn: visit_date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column stage
+		dataType: string
+		lineageTag: f578ce17-fb43-4d00-a43e-00d98b75c6f1
+		summarizeBy: none
+		sourceColumn: stage
+
+		annotation SummarizationSetBy = Automatic
+
+	column action
+		dataType: string
+		lineageTag: b751ef81-cd60-405d-925f-a821b84bb5dc
+		summarizeBy: none
+		sourceColumn: action
+
+		annotation SummarizationSetBy = Automatic
+
+	column duration
+		dataType: int64
+		formatString: 0
+		lineageTag: d62e211c-4400-420b-bb7f-dda70aef8332
+		summarizeBy: sum
+		sourceColumn: duration
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fact_customer_journey = m
+		mode: import
+		source =
+				let
+				    Source = clean_data,
+				    #"C:\Users\usuario\Desktop\marketinganalyticsportfolio\clean_data\_clean_customer_journey csv" = Source{[#"Folder Path"="C:\Users\usuario\Desktop\marketinganalyticsportfolio\clean_data\",Name="clean_customer_journey.csv"]}[Content],
+				    #"Imported CSV" = Csv.Document(#"C:\Users\usuario\Desktop\marketinganalyticsportfolio\clean_data\_clean_customer_journey csv",[Delimiter=",", Columns=7, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(#"Imported CSV", [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"id", Int64.Type}, {"customer_id", Int64.Type}, {"product_id", Int64.Type}, {"visit_date", type date}, {"stage", type text}, {"action", type text}, {"duration", Int64.Type}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

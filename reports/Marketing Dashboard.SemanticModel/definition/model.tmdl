@@ -1,0 +1,28 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["clean_data","fact_customer_journey","fact_customer_reviews_sentiment","fact_engagement_data","dim_customers","dim_geography","dim_products"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table fact_customer_journey
+ref table DateTableTemplate_138df987-86e1-4cd8-b49f-1477c8ee074f
+ref table fact_customer_reviews_sentiment
+ref table fact_engagement_data
+ref table dim_customers
+ref table dim_geography
+ref table dim_products
+ref table _measures
+ref table Calendar
+ref table LocalDateTable_d8c50ded-e184-4667-8ab9-e184e58bacc8
+
+ref cultureInfo en-US
+

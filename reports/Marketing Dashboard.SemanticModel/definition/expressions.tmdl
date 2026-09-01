@@ -1,0 +1,11 @@
+expression clean_data =
+		let
+		    Source = Folder.Files("C:\Users\usuario\Desktop\marketinganalyticsportfolio\clean_data")
+		in
+		    Source
+	lineageTag: 4b9b4326-9314-4173-95b7-8814ff44fed7
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

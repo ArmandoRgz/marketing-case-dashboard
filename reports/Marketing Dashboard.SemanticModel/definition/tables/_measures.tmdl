@@ -1,0 +1,65 @@
+table _measures
+	lineageTag: 5aaff664-72fa-4dac-839e-a231aed6e468
+
+	measure Clicks = SUM(fact_engagement_data[clicks])
+		formatString: 0
+		lineageTag: ca1a8a00-ad3b-4a27-908d-284f820be77e
+
+	measure Likes = SUM(fact_engagement_data[likes])
+		formatString: 0
+		lineageTag: f81b68e0-5db1-4a48-994c-615a12ae9480
+
+	measure 'Number of Campaigns' = DISTINCTCOUNT(fact_engagement_data[campaign_id])
+		formatString: 0
+		lineageTag: 222aa900-05aa-4122-b21d-117217feb60f
+
+	measure 'Number of Customer Reviews' = DISTINCTCOUNT(fact_customer_reviews_sentiment[id])
+		formatString: 0
+		lineageTag: b09aceab-9a5d-41a2-a584-bea9f1f141a3
+
+	measure Views = SUM(fact_engagement_data[views])
+		formatString: 0
+		lineageTag: a2fe824a-2fe6-484c-8b5f-1ba4c4dc923e
+
+	measure 'Average Rating' = AVERAGE(fact_customer_reviews_sentiment[rating])
+		lineageTag: a1308c11-e7d4-4ce0-96ef-e5f9dbf6a1c2
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Conversion Rate' =
+			
+			VAR total_visitors = CALCULATE(COUNT(fact_customer_journey[id]), fact_customer_journey[action] = "View")
+			VAR total_purchases = CALCULATE(
+			    COUNT(fact_customer_journey[id]), fact_customer_journey[action] = "Purchase")
+			
+			RETURN
+			
+			IF(
+			    total_visitors = 0, 0,
+			    DIVIDE(total_purchases,total_visitors))
+		lineageTag: f261fa1a-6768-4788-b589-d5536924a81b
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Number of Customer Journeys' = DISTINCTCOUNT(fact_customer_journey[id])
+		formatString: 0
+		lineageTag: dfcad72c-107e-4553-a0cf-6bf72151d9d0
+
+	column Column
+		isHidden
+		formatString: 0
+		lineageTag: 05f36897-b3cf-45e6-833d-7a380bbd5010
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Column]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _measures = calculated
+		mode: import
+		source = Row("Column", BLANK())
+
+	annotation PBI_Id = 49584298fa54425282d8a10dd629a699
+
+	annotation 436ba87b-9c83-4389-a31b-ebd06a36be98 = {"Expression":""}
+

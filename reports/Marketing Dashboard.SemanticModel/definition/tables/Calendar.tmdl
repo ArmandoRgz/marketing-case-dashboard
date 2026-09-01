@@ -1,0 +1,70 @@
+table Calendar
+	lineageTag: 65dda981-eff4-45dc-8518-17728fada41f
+
+	column Date
+		formatString: General Date
+		lineageTag: 0b8e938f-4e1b-459e-8fcd-811693b90b99
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		variation Variation
+			isDefault
+			relationship: 799fe59a-ceee-49bc-8dc9-0d59978183a2
+			defaultHierarchy: LocalDateTable_d8c50ded-e184-4667-8ab9-e184e58bacc8.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Day of the week' = WEEKDAY([Date])
+		formatString: 0
+		lineageTag: 0956bce9-603d-4031-995c-745ec723a582
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Day = DAY([Date])
+		formatString: 0
+		lineageTag: 9f3618ea-d867-434b-92f4-99343bfc21d6
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Day Name' = FORMAT([Date],"dddd")
+		lineageTag: 35d80746-aed3-4c82-a802-00c1ccc868c0
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Month = MONTH([Date])
+		formatString: 0
+		lineageTag: d418a005-cf39-4014-acb8-8d113c750ccc
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Short' = FORMAT([Date], "MMM")
+		lineageTag: 54829fb2-6e1c-45f7-8833-db358ab4a165
+		summarizeBy: none
+		sortByColumn: Month
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Name' = FORMAT([Date], "MMMM")
+		lineageTag: 51dd98d7-de43-490c-8a0b-f6726417d47f
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year = YEAR([Date])
+		formatString: 0
+		lineageTag: 7513f79d-9ff4-4564-9045-c3b1ea1bcf38
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Calendar = calculated
+		mode: import
+		source = CALENDAR(DATE(2023,1,1),DATE(2025,12,31))
+
+	annotation PBI_Id = 5dfe799a2c4c48e8a8283842102c06a8
+
