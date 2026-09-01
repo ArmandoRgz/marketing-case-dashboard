@@ -19,6 +19,7 @@ Finally, the cleaned tables were loaded into Power BI, organized into a star sch
 
 
 [Said dashboards can be found here](https://app.powerbi.com/view?r=eyJrIjoiNmM3NmIyYzctMWI1Ni00NjQ2LTk4MjUtNTI3NmU3YmM2YmE3IiwidCI6ImU5NWY3MzFmLTgyYzMtNDUwYy04MTIzLTE2ZTVmZWMyNzcxZCJ9).
+[![Marketing Data Dashboard](image_url)](https://app.powerbi.com/view?r=eyJrIjoiNmM3NmIyYzctMWI1Ni00NjQ2LTk4MjUtNTI3NmU3YmM2YmE3IiwidCI6ImU5NWY3MzFmLTgyYzMtNDUwYy04MTIzLTE2ZTVmZWMyNzcxZCJ9)
 
 
 
