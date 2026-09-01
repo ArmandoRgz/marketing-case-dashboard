@@ -1,8 +1,8 @@
-\# Marketing Data Analysis
+# Marketing Data Analysis
 
 
 
-This repository contains source files, scripts and resulting dashboards for a practice case using sample data provided by \[Ali Ahmad](https://github.com/aliahmad-1987/DataAnalystPortfolioProject\_PBI\_SQL\_Python\_MarketingAnalytics/blob/main/Episode%202%20-%20PortfolioProject\_MarketingAnalytics.bak).
+This repository contains source files, scripts and resulting dashboards for a practice case using sample data provided by [Ali Ahmad](https://github.com/aliahmad-1987/DataAnalystPortfolioProject\_PBI\_SQL\_Python\_MarketingAnalytics/blob/main/Episode%202%20-%20PortfolioProject\_MarketingAnalytics.bak).
 
 
 
@@ -18,11 +18,12 @@ Finally, the cleaned tables were loaded into Power BI, organized into a star sch
 
 
 
-\[Said dashboards can be found here](https://app.powerbi.com/view?r=eyJrIjoiNmM3NmIyYzctMWI1Ni00NjQ2LTk4MjUtNTI3NmU3YmM2YmE3IiwidCI6ImU5NWY3MzFmLTgyYzMtNDUwYy04MTIzLTE2ZTVmZWMyNzcxZCJ9).
+[Said dashboards can be found here](https://app.powerbi.com/view?r=eyJrIjoiNmM3NmIyYzctMWI1Ni00NjQ2LTk4MjUtNTI3NmU3YmM2YmE3IiwidCI6ImU5NWY3MzFmLTgyYzMtNDUwYy04MTIzLTE2ZTVmZWMyNzcxZCJ9).
+[![Marketing Data Dashboard](image_url)](https://app.powerbi.com/view?r=eyJrIjoiNmM3NmIyYzctMWI1Ni00NjQ2LTk4MjUtNTI3NmU3YmM2YmE3IiwidCI6ImU5NWY3MzFmLTgyYzMtNDUwYy04MTIzLTE2ZTVmZWMyNzcxZCJ9)
 
 
 
 The aforementioned star schema is presented as follows:
-
+![Star schema](https://github.com/ArmandoRgz/marketing-case-dashboard/blob/master/images/star_schema.png?raw=true)
 
 
